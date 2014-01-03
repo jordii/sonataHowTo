@@ -54,6 +54,7 @@
                 - ~
             calls:
                 - [ setTranslationDomain, [AcmeDemoBundle]]
+    //Note: "show_in_dashboard: false" in tags
     //load admin.yml in YouBundleExtensions.php            
 
 #create admin class
@@ -156,7 +157,10 @@ class ProductAdmin extends Admin
 ..
 
 /**
-* @ORM\OneToMany(targetEntity="Paula\ApiBundle\Entity\Photo", mappedBy="Product", cascade={"persist"},orphanRemoval=true)  //!important
+* @ORM\OneToMany(targetEntity="Demo\ApiBundle\Entity\Photo", mappedBy="Product",
+* cascade={"persist"}, //!important
+* orphanRemoval=true   //!important
+* )
 */
 private $Photos;
 
@@ -257,7 +261,7 @@ public function removePhoto($photo)
 
     #PhotoAdmin class
 
-        use Paula\ApiBundle\Form\Type\previewType;
+        use Demo\ApiBundle\Form\Type\previewType;
 
         // Fields to be shown on create/edit forms
         protected function configureFormFields(FormMapper $formMapper)
@@ -276,7 +280,7 @@ public function removePhoto($photo)
 
         #preview type class
         <?php
-        namespace Paula\ApiBundle\Form\Type;
+        namespace Demo\ApiBundle\Form\Type;
 
         use Symfony\Component\Form\AbstractType;
         use Symfony\Component\OptionsResolver\OptionsResolverInterface;
