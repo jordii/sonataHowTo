@@ -247,7 +247,7 @@ public function removePhoto($photo)
         exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
         form:
             resources:
-                - 'PaulaApiBundle:Form:fields.html.twig'
+                - 'DemoApiBundle:Form:fields.html.twig'
 
     #field template
     {% block preview_widget %}
